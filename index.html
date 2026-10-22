@@ -296,8 +296,8 @@
                     <span>Lista de Prêmios (80)</span>
                 </button>
 
-                <!-- Painel Admin Exclusivo (Senha 7777) -->
-                <button onclick="openAdminDashboard('tracking')" title="Acesso Exclusivo do Administrador (Senha 7777)"
+                <!-- Painel Admin -->
+                <button onclick="openAdminDashboard('tracking')" title="Acesso do administrador"
                     class="px-4 py-2.5 rounded-xl text-xs sm:text-sm font-extrabold bg-slate-900 dark:bg-amber-500 hover:bg-slate-800 dark:hover:bg-amber-400 text-white dark:text-slate-950 shadow-md flex items-center gap-2 transition relative">
                     <i class="ph-fill ph-shield-check text-base text-amber-400 dark:text-slate-950"></i>
                     <span>Painel Admin</span>
@@ -526,7 +526,7 @@
                 </div>
 
                 <!-- Admin Active Badge (Only visible when Admin is unlocked) -->
-                <button id="btn-peek" onclick="handlePeekButtonClick()" title="Modo Espiar Exclusivo do Admin (Senha 7777)"
+                <button id="btn-peek" onclick="handlePeekButtonClick()" title="Modo espiar do administrador"
                     class="hidden px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-amber-500 text-slate-950 shadow-sm items-center gap-1.5 transition shrink-0">
                     <i id="icon-peek" class="ph-fill ph-eye text-base"></i>
                     <span class="hidden sm:inline">Espiar (Admin)</span>
@@ -572,7 +572,7 @@
             <p class="font-medium">🎁 <strong>Sorteio Premiado Alares 80</strong> — Sistema protegido contra fraude. Liberação exclusiva por Nome + Senha (01 a 80).</p>
             <div class="flex items-center gap-4">
                 <button onclick="openAdminDashboard('tracking')" class="font-bold text-slate-700 dark:text-slate-300 hover:text-amber-600 underline">
-                    🔐 Painel Admin (7777)
+                    🔐 Painel Admin
                 </button>
                 <p class="flex items-center gap-1.5 font-semibold text-emerald-600 dark:text-emerald-400">
                     <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
@@ -728,7 +728,7 @@
     </div>
 
     <!-- ========================================================== -->
-    <!-- MODAL 6: PAINEL ADMIN COMPLETO (SENHA EXCLUSIVA 7777)      -->
+    <!-- MODAL 6: PAINEL ADMIN COMPLETO                             -->
     <!-- ========================================================== -->
     <div id="modal-admin-dashboard" class="fixed inset-0 z-50 hidden items-center justify-center p-2 sm:p-4 bg-slate-900/80 dark:bg-slate-950/90 backdrop-blur-md">
         <div class="w-full max-w-6xl bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-2xl flex flex-col max-h-[94vh] overflow-hidden">
@@ -745,7 +745,7 @@
                                 Painel Admin Exclusivo — Sorteio Alares (01 a 80)
                             </h2>
                             <span class="px-2.5 py-0.5 rounded-full text-[10px] font-extrabold uppercase bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
-                                🔓 Admin Logado (7777)
+                                🔓 Admin Logado
                             </span>
                         </div>
                         <p class="text-xs text-slate-300">
@@ -926,10 +926,10 @@
                         <!-- Toggle 1: Optional Block same person name from playing twice (Disabled by default so people can play multiple times) -->
                         <label class="flex items-center justify-between p-3 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 cursor-pointer">
                             <div>
-                                <div class="text-xs font-extrabold text-slate-900 dark:text-white">👤 Limitar a 1 Número por Nome (Desativado = Pode jogar várias vezes)</div>
-                                <div class="text-[11px] text-slate-500">Deixe desmarcado para permitir que a mesma pessoa participe várias vezes com números diferentes</div>
+                                <div class="text-xs font-extrabold text-slate-900 dark:text-white">👤 Limitar a 1 Número por Nome</div>
+                                <div class="text-[11px] text-slate-500">Indisponível com nomes protegidos; os dados pessoais ficam visíveis apenas ao administrador.</div>
                             </div>
-                            <input type="checkbox" id="chk-unique-name" onchange="toggleUniqueNameRule(this.checked)" class="w-5 h-5 accent-amber-500 rounded cursor-pointer">
+                            <input type="checkbox" id="chk-unique-name" disabled class="w-5 h-5 accent-amber-500 rounded cursor-not-allowed">
                         </label>
 
                         <!-- Toggle 2: Block same device from playing twice -->
@@ -942,14 +942,13 @@
                         </label>
                     </div>
 
-                    <!-- Password Mode & Admin PIN 7777 Card -->
+                    <!-- Password Mode & Admin Access -->
                     <div class="p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 space-y-3.5">
                         <div class="flex items-center justify-between">
                             <div class="flex items-center gap-2">
                                 <i class="ph-fill ph-key text-amber-500 text-xl"></i>
                                 <h3 class="font-display font-black text-base text-slate-900 dark:text-white">Modo de Senha dos Participantes</h3>
                             </div>
-                            <span class="px-2.5 py-0.5 rounded-md bg-slate-900 text-amber-400 text-[11px] font-mono font-bold">Admin: 7777</span>
                         </div>
 
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
@@ -1031,7 +1030,7 @@
     </div>
 
     <!-- ========================================================== -->
-    <!-- MODAL 7: LOGIN EXCLUSIVO DO ADMIN (SENHA 7777)             -->
+    <!-- MODAL 7: LOGIN DO ADMIN                                    -->
     <!-- ========================================================== -->
     <div id="modal-organizer-auth" class="fixed inset-0 z-[60] hidden items-center justify-center p-4 bg-slate-900/80 dark:bg-slate-950/90 backdrop-blur-md">
         <div class="w-full max-w-sm bg-white dark:bg-slate-900 rounded-3xl border-2 border-amber-400/80 dark:border-slate-700 shadow-2xl p-6 text-center relative animate-pop-reveal">
@@ -1043,32 +1042,17 @@
             </div>
             <h3 class="font-display font-black text-xl text-slate-900 dark:text-white">Acesso Exclusivo Admin</h3>
             <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">
-                Digite a senha de administrador para acompanhar os números escolhidos, ganhadores e controlar o sorteio.
+                Entre com o e-mail e a senha do administrador.
             </p>
 
             <form onsubmit="event.preventDefault(); verifyOrganizerAuth();" class="mt-4 space-y-3">
-                <input type="password" inputmode="numeric" id="organizer-auth-input" placeholder="Senha Admin..." required
-                    class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border-2 border-slate-200 dark:border-slate-700 text-center text-xl font-black tracking-widest text-slate-900 dark:text-white focus:outline-none focus:border-amber-500">
-
-                <!-- Quick Numeric Keypad for Easy Mobile/Desktop Login -->
-                <div class="grid grid-cols-3 gap-2 pt-1">
-                    <button type="button" onclick="appendAdminPinDigit('1')" class="py-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-amber-100 dark:hover:bg-slate-700 font-display font-black text-base text-slate-800 dark:text-white transition">1</button>
-                    <button type="button" onclick="appendAdminPinDigit('2')" class="py-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-amber-100 dark:hover:bg-slate-700 font-display font-black text-base text-slate-800 dark:text-white transition">2</button>
-                    <button type="button" onclick="appendAdminPinDigit('3')" class="py-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-amber-100 dark:hover:bg-slate-700 font-display font-black text-base text-slate-800 dark:text-white transition">3</button>
-                    <button type="button" onclick="appendAdminPinDigit('4')" class="py-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-amber-100 dark:hover:bg-slate-700 font-display font-black text-base text-slate-800 dark:text-white transition">4</button>
-                    <button type="button" onclick="appendAdminPinDigit('5')" class="py-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-amber-100 dark:hover:bg-slate-700 font-display font-black text-base text-slate-800 dark:text-white transition">5</button>
-                    <button type="button" onclick="appendAdminPinDigit('6')" class="py-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-amber-100 dark:hover:bg-slate-700 font-display font-black text-base text-slate-800 dark:text-white transition">6</button>
-                    <button type="button" onclick="appendAdminPinDigit('7')" class="py-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-amber-100 dark:hover:bg-slate-700 font-display font-black text-base text-slate-800 dark:text-white transition">7</button>
-                    <button type="button" onclick="appendAdminPinDigit('8')" class="py-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-amber-100 dark:hover:bg-slate-700 font-display font-black text-base text-slate-800 dark:text-white transition">8</button>
-                    <button type="button" onclick="appendAdminPinDigit('9')" class="py-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-amber-100 dark:hover:bg-slate-700 font-display font-black text-base text-slate-800 dark:text-white transition">9</button>
-                    <button type="button" onclick="clearAdminPinDigits()" class="py-2.5 rounded-xl bg-rose-50 dark:bg-rose-950/40 text-rose-600 dark:text-rose-300 font-bold text-xs transition">Limpar</button>
-                    <button type="button" onclick="appendAdminPinDigit('0')" class="py-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-amber-100 dark:hover:bg-slate-700 font-display font-black text-base text-slate-800 dark:text-white transition">0</button>
-                    <button type="submit" class="py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-xs transition">Entrar ↵</button>
-                </div>
-
-                <div id="organizer-auth-error" class="hidden text-xs font-bold text-rose-600">Senha incorreta! Apenas o administrador tem acesso.</div>
+                <input type="email" id="organizer-auth-email" placeholder="E-mail do administrador" autocomplete="username" required
+                    class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border-2 border-slate-200 dark:border-slate-700 text-center text-sm font-bold text-slate-900 dark:text-white focus:outline-none focus:border-amber-500">
+                <input type="password" id="organizer-auth-input" placeholder="Senha do Firebase" autocomplete="current-password" required
+                    class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border-2 border-slate-200 dark:border-slate-700 text-center text-sm font-bold text-slate-900 dark:text-white focus:outline-none focus:border-amber-500">
+                <div id="organizer-auth-error" class="hidden text-xs font-bold text-rose-600"></div>
                 <button type="submit" class="w-full py-3.5 rounded-xl bg-slate-900 dark:bg-amber-500 hover:opacity-95 text-white dark:text-slate-950 font-display font-black text-sm shadow-md">
-                    Desbloquear Painel Admin
+                    Entrar no painel admin
                 </button>
             </form>
         </div>
@@ -1101,11 +1085,33 @@
     <!-- ========================================================== -->
     <!-- APPLICATION JAVASCRIPT                                     -->
     <!-- ========================================================== -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore-compat.js"></script>
     <script>
         const STORAGE_KEY = 'sorteio_premiado_80_alares_v3';
         const DEVICE_LOCK_KEY = 'sorteio_alares_80_device_played';
         const TOTAL_NUMBERS = 80;
-        const ADMIN_MASTER_PIN = '7777';
+        const ADMIN_EMAIL = 'steven35silva@gmail.com';
+        const firebaseConfig = {
+            apiKey: 'AIzaSyD-GJIs0OYTwnSMssgZdxw2TMl_rk4YQsY',
+            authDomain: 'bingo-4db6a.firebaseapp.com',
+            projectId: 'bingo-4db6a',
+            storageBucket: 'bingo-4db6a.firebasestorage.app',
+            messagingSenderId: '645058369127',
+            appId: '1:645058369127:web:f0813ca2c1bef1fa9766c2',
+            measurementId: 'G-JHLV28BT2K'
+        };
+        const firebaseApp = firebase.initializeApp(firebaseConfig);
+        const firebaseAuth = firebaseApp.auth();
+        const firebaseDb = firebaseApp.firestore();
+        let cloudReady = false;
+        let cloudUserId = null;
+        let cloudLoadPromise = null;
+        let localClaimNumber = null;
+        let publicNumbersUnsubscribe = null;
+        let participantsUnsubscribe = null;
+        let publicConfigUnsubscribe = null;
 
         // Rarity Configuration (Diamante, Ouro, Prata Alares, Mimos)
         const RARITY_META = {
@@ -1183,7 +1189,6 @@
             securityMode: 'numeric_or_pin',
             uniqueNameLock: false,   // Permite que a mesma pessoa participe várias vezes com o mesmo nome
             deviceSingleLock: false, // Permite múltiplas participações no mesmo aparelho
-            masterPassword: ADMIN_MASTER_PIN,
             items: []
         };
 
@@ -1421,7 +1426,6 @@
                             // Garante que ao atualizar para a v3 o mesmo nome possa participar várias vezes
                             uniqueNameLock: rawV3 ? Boolean(parsed.uniqueNameLock) : false,
                             deviceSingleLock: rawV3 ? Boolean(parsed.deviceSingleLock) : false,
-                            masterPassword: ADMIN_MASTER_PIN
                         };
                         if (!state.deviceSingleLock) {
                             localStorage.removeItem(DEVICE_LOCK_KEY);
@@ -1444,7 +1448,7 @@
             saveState();
         }
 
-        function saveState() {
+        function saveState(syncCloud = true) {
             try {
                 localStorage.setItem(STORAGE_KEY, JSON.stringify({
                     title: state.title,
@@ -1454,10 +1458,300 @@
                     securityMode: state.securityMode,
                     uniqueNameLock: state.uniqueNameLock,
                     deviceSingleLock: state.deviceSingleLock,
-                    masterPassword: ADMIN_MASTER_PIN,
                     items: state.items
                 }));
             } catch (e) {}
+            if (syncCloud && organizerUnlocked && cloudReady) {
+                saveCloudConfig().catch(error => {
+                    showToast(`Erro ao salvar configurações online: ${getFirebaseErrorMessage(error)}`);
+                });
+            }
+        }
+
+        function isAdminUser(user) {
+            return Boolean(user && user.email && user.email.toLowerCase() === ADMIN_EMAIL);
+        }
+
+        function getFirebaseErrorMessage(error) {
+            const messages = {
+                'auth/invalid-credential': 'E-mail ou senha incorretos.',
+                'auth/user-not-found': 'Usuário administrador não encontrado no Firebase Authentication.',
+                'auth/wrong-password': 'E-mail ou senha incorretos.',
+                'auth/invalid-email': 'Digite um e-mail válido.',
+                'auth/too-many-requests': 'Muitas tentativas. Aguarde um pouco e tente novamente.',
+                'auth/operation-not-allowed': 'Ative o método de login por e-mail/senha e o login anônimo no Firebase.',
+                'permission-denied': 'Acesso negado pelo Firestore. Confira as regras de segurança.',
+                'unavailable': 'Firebase indisponível no momento. Verifique sua conexão.'
+            };
+            return messages[error && error.code] || (error && error.message) || 'Erro inesperado no Firebase.';
+        }
+
+        function publicConfigFromState() {
+            return {
+                title: state.title,
+                subtitle: state.subtitle,
+                securityMode: state.securityMode,
+                uniqueNameLock: false,
+                deviceSingleLock: state.deviceSingleLock,
+                passwords: state.items.map(item => item.password)
+            };
+        }
+
+        async function saveCloudConfig() {
+            if (!organizerUnlocked || !cloudReady) return;
+            await firebaseDb.collection('appConfig').doc('public').set(publicConfigFromState());
+        }
+
+        function applyCloudConfig(config) {
+            if (!config) return;
+            if (typeof config.title === 'string') state.title = config.title;
+            if (typeof config.subtitle === 'string') state.subtitle = config.subtitle;
+            if (config.securityMode === 'strict_pin' || config.securityMode === 'numeric_or_pin') {
+                state.securityMode = config.securityMode;
+            }
+            state.uniqueNameLock = false;
+            state.deviceSingleLock = Boolean(config.deviceSingleLock);
+            if (Array.isArray(config.passwords) && config.passwords.length === TOTAL_NUMBERS) {
+                state.items.forEach((item, index) => {
+                    item.password = String(config.passwords[index] || formatNum(item.number));
+                });
+            }
+            saveState(false);
+            renderAll();
+        }
+
+        function applyPublicNumbers(snapshot) {
+            snapshot.forEach(doc => {
+                const data = doc.data();
+                const item = state.items.find(entry => entry.number === Number(doc.id));
+                if (!item) return;
+                item.prizeName = data.prizeName;
+                item.emoji = data.emoji;
+                item.rarity = data.rarity;
+                item.isMajor = Boolean(data.isMajor);
+                item.opened = Boolean(data.opened);
+                item.openedAt = data.openedAt || null;
+                if (!organizerUnlocked && item.number !== localClaimNumber) {
+                    item.winnerName = '';
+                    item.delivered = false;
+                    item.openedOrder = 0;
+                }
+            });
+            saveState(false);
+            renderAll();
+        }
+
+        function applyPrivateParticipants(snapshot) {
+            if (!organizerUnlocked) return;
+            state.items.forEach(item => {
+                item.winnerName = '';
+                item.delivered = false;
+                item.openedOrder = 0;
+            });
+            snapshot.forEach(doc => {
+                const data = doc.data();
+                const item = state.items.find(entry => entry.number === Number(doc.id));
+                if (!item) return;
+                item.winnerName = data.winnerName || '';
+                item.openedAt = data.openedAt || item.openedAt;
+                item.openedOrder = Number(data.openedOrder) || 0;
+                item.authCode = data.authCode || item.authCode;
+                item.delivered = Boolean(data.delivered);
+            });
+            saveState(false);
+            renderAll();
+            if (!document.getElementById('modal-admin-dashboard').classList.contains('hidden')) {
+                renderAdminTrackingTable();
+                renderAdminInventory();
+                renderAdminSecretMap();
+            }
+        }
+
+        function clearPrivateParticipants() {
+            state.items.forEach(item => {
+                item.winnerName = '';
+                item.delivered = false;
+                item.openedOrder = 0;
+            });
+            saveState(false);
+            renderAll();
+        }
+
+        async function seedCloudDatabase() {
+            const batch = firebaseDb.batch();
+            state.items.forEach(item => {
+                batch.set(firebaseDb.collection('publicNumbers').doc(String(item.number)), {
+                    number: item.number,
+                    prizeName: item.prizeName,
+                    emoji: item.emoji,
+                    rarity: item.rarity,
+                    isMajor: Boolean(item.isMajor),
+                    opened: false,
+                    openedAt: null
+                });
+            });
+            batch.set(firebaseDb.collection('appConfig').doc('public'), publicConfigFromState());
+            await batch.commit();
+        }
+
+        async function loadCloudDataForUser(user) {
+            if (cloudLoadPromise && cloudUserId === user.uid) return cloudLoadPromise;
+            if (cloudUserId !== user.uid) localClaimNumber = null;
+            cloudUserId = user.uid;
+            cloudReady = false;
+            if (publicNumbersUnsubscribe) publicNumbersUnsubscribe();
+            if (participantsUnsubscribe) participantsUnsubscribe();
+            if (publicConfigUnsubscribe) publicConfigUnsubscribe();
+
+            cloudLoadPromise = (async () => {
+                let numberSnapshot = await firebaseDb.collection('publicNumbers').get();
+                if (!firebaseAuth.currentUser || firebaseAuth.currentUser.uid !== user.uid) return;
+                if (numberSnapshot.empty) {
+                    if (!isAdminUser(user)) {
+                        showToast('O administrador precisa entrar primeiro para configurar os 80 números.');
+                        return;
+                    }
+                    await seedCloudDatabase();
+                    if (!firebaseAuth.currentUser || firebaseAuth.currentUser.uid !== user.uid) return;
+                    numberSnapshot = await firebaseDb.collection('publicNumbers').get();
+                }
+                if (!firebaseAuth.currentUser || firebaseAuth.currentUser.uid !== user.uid) return;
+                if (numberSnapshot.size !== TOTAL_NUMBERS) {
+                    throw new Error(`O banco contém ${numberSnapshot.size} números. Esperado: ${TOTAL_NUMBERS}.`);
+                }
+
+                applyPublicNumbers(numberSnapshot);
+                const configRef = firebaseDb.collection('appConfig').doc('public');
+                const configSnapshot = await configRef.get();
+                if (!firebaseAuth.currentUser || firebaseAuth.currentUser.uid !== user.uid) return;
+                if (configSnapshot.exists) applyCloudConfig(configSnapshot.data());
+
+                if (isAdminUser(user)) {
+                    const participantsSnapshot = await firebaseDb.collection('participants').get();
+                    if (!firebaseAuth.currentUser || firebaseAuth.currentUser.uid !== user.uid) return;
+                    applyPrivateParticipants(participantsSnapshot);
+                    participantsUnsubscribe = firebaseDb.collection('participants').onSnapshot(
+                        applyPrivateParticipants,
+                        error => showToast(`Erro ao atualizar participantes: ${getFirebaseErrorMessage(error)}`)
+                    );
+                } else {
+                    state.items.forEach(item => {
+                        item.winnerName = '';
+                        item.delivered = false;
+                        item.openedOrder = 0;
+                    });
+                }
+
+                cloudReady = true;
+                saveState(false);
+                publicNumbersUnsubscribe = firebaseDb.collection('publicNumbers').onSnapshot(
+                    applyPublicNumbers,
+                    error => showToast(`Erro ao atualizar números: ${getFirebaseErrorMessage(error)}`)
+                );
+                publicConfigUnsubscribe = configRef.onSnapshot(snapshot => {
+                    if (snapshot.exists) applyCloudConfig(snapshot.data());
+                }, error => showToast(`Erro ao atualizar configurações: ${getFirebaseErrorMessage(error)}`));
+                renderAll();
+            })();
+
+            try {
+                await cloudLoadPromise;
+            } catch (error) {
+                if (cloudUserId === user.uid) cloudLoadPromise = null;
+                throw error;
+            }
+        }
+
+        function initializeFirebaseAuth() {
+            firebaseAuth.setPersistence(firebase.auth.Auth.Persistence.LOCAL).catch(error => {
+                showToast(`Erro ao iniciar o login: ${getFirebaseErrorMessage(error)}`);
+            });
+            firebaseAuth.onAuthStateChanged(user => {
+                if (!user) {
+                    organizerUnlocked = false;
+                    if (participantsUnsubscribe) participantsUnsubscribe();
+                    participantsUnsubscribe = null;
+                    clearPrivateParticipants();
+                    firebaseAuth.signInAnonymously().catch(error => {
+                        showToast(`Não foi possível conectar ao Firebase: ${getFirebaseErrorMessage(error)}`);
+                    });
+                    return;
+                }
+                organizerUnlocked = isAdminUser(user);
+                if (!organizerUnlocked) {
+                    if (participantsUnsubscribe) participantsUnsubscribe();
+                    participantsUnsubscribe = null;
+                    clearPrivateParticipants();
+                }
+                updateAdminLockIndicator();
+                loadCloudDataForUser(user).catch(error => {
+                    cloudReady = false;
+                    showToast(`Erro ao carregar dados online: ${getFirebaseErrorMessage(error)}`);
+                });
+            });
+        }
+
+        async function claimNumberOnline(item, participantName, openedAt) {
+            if (!cloudReady || !firebaseAuth.currentUser) {
+                throw new Error('Aguarde a conexão com o banco de dados e tente novamente.');
+            }
+            const numberRef = firebaseDb.collection('publicNumbers').doc(String(item.number));
+            const participantRef = firebaseDb.collection('participants').doc(String(item.number));
+            const openedOrder = state.items.filter(entry => entry.opened).length + 1;
+            const authCode = generateAuthHash(item.number);
+
+            await firebaseDb.runTransaction(async transaction => {
+                const numberSnapshot = await transaction.get(numberRef);
+                if (!numberSnapshot.exists) throw new Error('Este número ainda não foi configurado pelo administrador.');
+                if (numberSnapshot.data().opened) throw new Error('Este número já foi escolhido. Escolha outro.');
+                transaction.update(numberRef, { opened: true, openedAt });
+                transaction.set(participantRef, {
+                    number: item.number,
+                    winnerName: participantName,
+                    openedAt,
+                    openedOrder,
+                    authCode,
+                    delivered: false
+                });
+            });
+            return { openedOrder, authCode };
+        }
+
+        async function updateCloudParticipant(number, updates) {
+            if (!organizerUnlocked || !cloudReady) throw new Error('Entre como administrador para alterar participantes.');
+            await firebaseDb.collection('participants').doc(String(number)).update(updates);
+        }
+
+        async function resetCloudNumber(number) {
+            if (!organizerUnlocked || !cloudReady) throw new Error('Entre como administrador para estornar números.');
+            const numberRef = firebaseDb.collection('publicNumbers').doc(String(number));
+            const participantRef = firebaseDb.collection('participants').doc(String(number));
+            await firebaseDb.runTransaction(async transaction => {
+                const numberSnapshot = await transaction.get(numberRef);
+                const participantSnapshot = await transaction.get(participantRef);
+                if (!numberSnapshot.exists) throw new Error('Número não encontrado no banco.');
+                transaction.update(numberRef, { opened: false, openedAt: null });
+                if (participantSnapshot.exists) transaction.delete(participantRef);
+            });
+        }
+
+        async function resetCloudDraw(items) {
+            if (!organizerUnlocked || !cloudReady) throw new Error('Entre como administrador para reiniciar o sorteio.');
+            const batch = firebaseDb.batch();
+            items.forEach(item => {
+                batch.set(firebaseDb.collection('publicNumbers').doc(String(item.number)), {
+                    number: item.number,
+                    prizeName: item.prizeName,
+                    emoji: item.emoji,
+                    rarity: item.rarity,
+                    isMajor: Boolean(item.isMajor),
+                    opened: false,
+                    openedAt: null
+                });
+                batch.delete(firebaseDb.collection('participants').doc(String(item.number)));
+            });
+            batch.set(firebaseDb.collection('appConfig').doc('public'), publicConfigFromState());
+            await batch.commit();
         }
 
         function formatNum(n) {
@@ -1473,23 +1767,19 @@
                 .replace(/\s+/g, ' ');
         }
 
-        // ==========================================
-        // EXCLUSIVE ADMIN AUTH (PIN 7777)
-        // ==========================================
-        function appendAdminPinDigit(digit) {
-            const input = document.getElementById('organizer-auth-input');
-            if (input && input.value.length < 16) {
-                input.value += digit;
-                document.getElementById('organizer-auth-error').classList.add('hidden');
-            }
+        function escapeHtml(value) {
+            return String(value == null ? '' : value).replace(/[&<>"']/g, character => ({
+                '&': '&amp;',
+                '<': '&lt;',
+                '>': '&gt;',
+                '"': '&quot;',
+                "'": '&#39;'
+            })[character]);
         }
 
-        function clearAdminPinDigits() {
-            const input = document.getElementById('organizer-auth-input');
-            if (input) input.value = '';
-            document.getElementById('organizer-auth-error').classList.add('hidden');
-        }
-
+        // ==========================================
+        // FIREBASE ADMIN AUTHENTICATION
+        // ==========================================
         function requireOrganizerAuth(callback) {
             if (organizerUnlocked) {
                 callback();
@@ -1498,10 +1788,12 @@
             pendingOrganizerCallback = callback;
             const modal = document.getElementById('modal-organizer-auth');
             const input = document.getElementById('organizer-auth-input');
+            const email = document.getElementById('organizer-auth-email');
             const err = document.getElementById('organizer-auth-error');
 
             err.classList.add('hidden');
             input.value = '';
+            email.value = ADMIN_EMAIL;
             modal.classList.remove('hidden');
             modal.classList.add('flex');
             setTimeout(() => input.focus(), 60);
@@ -1514,29 +1806,57 @@
             pendingOrganizerCallback = null;
         }
 
-        function verifyOrganizerAuth() {
-            const val = document.getElementById('organizer-auth-input').value.trim();
-            if (val === ADMIN_MASTER_PIN) {
-                organizerUnlocked = true;
+        async function verifyOrganizerAuth() {
+            const email = document.getElementById('organizer-auth-email').value.trim().toLowerCase();
+            const password = document.getElementById('organizer-auth-input').value;
+            const errorEl = document.getElementById('organizer-auth-error');
+            errorEl.classList.add('hidden');
+
+            if (email !== ADMIN_EMAIL) {
+                errorEl.textContent = 'Este e-mail não está autorizado para o painel admin.';
+                errorEl.classList.remove('hidden');
+                return;
+            }
+
+            try {
+                const credential = await firebaseAuth.signInWithEmailAndPassword(email, password);
+                organizerUnlocked = isAdminUser(credential.user);
+                if (!organizerUnlocked) {
+                    await firebaseAuth.signOut();
+                    throw new Error('Este usuário não está autorizado para administrar o sorteio.');
+                }
+                await loadCloudDataForUser(credential.user);
                 updateAdminLockIndicator();
                 renderAll();
                 const cb = pendingOrganizerCallback;
                 closeOrganizerAuthModal();
-                showToast('🔓 Acesso Admin (7777) liberado com sucesso!');
+                showToast('🔓 Login de administrador realizado.');
                 if (cb) cb();
-            } else {
-                document.getElementById('organizer-auth-error').classList.remove('hidden');
+            } catch (error) {
+                errorEl.textContent = getFirebaseErrorMessage(error);
+                errorEl.classList.remove('hidden');
                 playSound('error');
             }
         }
 
-        function lockOrganizerSession() {
+        async function lockOrganizerSession() {
             organizerUnlocked = false;
             state.peekMode = false;
             updateAdminLockIndicator();
             closeAdminDashboard();
+            state.items.forEach(item => {
+                item.winnerName = '';
+                item.delivered = false;
+                item.openedAt = item.opened ? item.openedAt : null;
+            });
             renderAll();
-            showToast('🔒 Painel Admin trancado com segurança!');
+            try {
+                await firebaseAuth.signOut();
+                await firebaseAuth.signInAnonymously();
+                showToast('🔒 Sessão do administrador encerrada.');
+            } catch (error) {
+                showToast(`Erro ao encerrar a sessão: ${getFirebaseErrorMessage(error)}`);
+            }
         }
 
         function updateAdminLockIndicator() {
@@ -1681,7 +2001,7 @@
                                 <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-700 text-[10px] font-extrabold uppercase text-slate-600 dark:text-slate-300">
                                     👤 Nome da Pessoa:
                                 </span>
-                                <span class="font-display font-black text-base sm:text-lg text-slate-900 dark:text-white">${item.winnerName || 'Participante'}</span>
+                                <span class="font-display font-black text-base sm:text-lg text-slate-900 dark:text-white">${escapeHtml(item.winnerName || 'Participante')}</span>
                                 ${samePersonCount > 1 ? `<span class="px-2 py-0.5 rounded-full bg-indigo-100 dark:bg-indigo-950/60 text-indigo-800 dark:text-indigo-300 text-[10px] font-extrabold">${samePersonCount} participações</span>` : ''}
                                 <span class="text-xs font-bold text-slate-400">• ⏰ ${item.openedAt || '--:--'}</span>
                             </div>
@@ -1689,7 +2009,7 @@
                                 <span class="px-2 py-0.5 rounded bg-amber-100 dark:bg-amber-950/60 text-[10px] font-extrabold uppercase text-amber-800 dark:text-amber-300">
                                     🎁 Prêmio do Número:
                                 </span>
-                                <span class="font-extrabold text-sm sm:text-base text-amber-600 dark:text-amber-400">${item.emoji} ${item.prizeName}</span>
+                                <span class="font-extrabold text-sm sm:text-base text-amber-600 dark:text-amber-400">${escapeHtml(item.emoji)} ${escapeHtml(item.prizeName)}</span>
                                 <span class="px-2 py-0.5 rounded-md text-[10px] font-extrabold uppercase ${rMeta.pillClass}">${rMeta.label}</span>
                             </div>
                         </div>
@@ -1718,23 +2038,35 @@
             });
         }
 
-        function togglePrizeDelivered(number) {
+        async function togglePrizeDelivered(number) {
             if (!organizerUnlocked) return;
             const item = state.items.find(i => i.number === number);
             if (!item) return;
-            item.delivered = !item.delivered;
-            saveState();
-            renderAdminTrackingTable();
-            showToast(item.delivered
-                ? `✅ Prêmio do Nº #${formatNum(number)} (${item.winnerName}) marcado como ENTREGUE!`
-                : `⏳ Prêmio do Nº #${formatNum(number)} marcado como pendente.`);
+            const delivered = !item.delivered;
+            try {
+                await updateCloudParticipant(number, { delivered });
+                item.delivered = delivered;
+                saveState(false);
+                renderAdminTrackingTable();
+                showToast(delivered
+                    ? `✅ Prêmio do Nº #${formatNum(number)} (${item.winnerName}) marcado como ENTREGUE!`
+                    : `⏳ Prêmio do Nº #${formatNum(number)} marcado como pendente.`);
+            } catch (error) {
+                showToast(`Erro ao atualizar entrega: ${getFirebaseErrorMessage(error)}`);
+            }
         }
 
-        function adminQuickUndoNumber(number) {
+        async function adminQuickUndoNumber(number) {
             if (!organizerUnlocked) return;
             const item = state.items.find(i => i.number === number);
             if (!item) return;
             const oldWinner = item.winnerName;
+            try {
+                await resetCloudNumber(number);
+            } catch (error) {
+                showToast(`Erro ao estornar o número: ${getFirebaseErrorMessage(error)}`);
+                return;
+            }
             item.opened = false;
             item.delivered = false;
             item.winnerName = '';
@@ -1742,7 +2074,7 @@
             item.openedOrder = 0;
             item.authCode = generateAuthHash(item.number);
             localStorage.removeItem(DEVICE_LOCK_KEY);
-            saveState();
+            saveState(false);
             renderAll();
             renderAdminTrackingTable();
             renderAdminSecretMap();
@@ -1769,7 +2101,7 @@
                 const winnersListHtml = wonItems.length > 0
                     ? `<div class="pt-2 mt-2 border-t border-slate-900/10 dark:border-white/10 space-y-1">
                         <div class="text-[10px] font-extrabold uppercase text-emerald-700 dark:text-emerald-400">✅ Ganhadores (${wonItems.length}):</div>
-                        ${wonItems.map(w => `<div class="text-xs font-bold text-slate-800 dark:text-slate-200 truncate">• <strong>Nº #${formatNum(w.number)}</strong> — ${w.winnerName}</div>`).join('')}
+                        ${wonItems.map(w => `<div class="text-xs font-bold text-slate-800 dark:text-slate-200 truncate">• <strong>Nº #${formatNum(w.number)}</strong> — ${escapeHtml(w.winnerName)}</div>`).join('')}
                        </div>`
                     : `<div class="pt-2 mt-2 border-t border-slate-900/10 dark:border-white/10 text-[11px] font-semibold text-emerald-700 dark:text-emerald-400">✨ Todos disponíveis no Bingo</div>`;
 
@@ -1835,15 +2167,15 @@
                             ${rMeta.label}
                         </span>
                     </div>
-                    <div class="text-xs font-extrabold text-slate-900 dark:text-white" title="${item.prizeName}">
-                        ${item.emoji} ${item.prizeName}
+                    <div class="text-xs font-extrabold text-slate-900 dark:text-white" title="${escapeHtml(item.prizeName)}">
+                        ${escapeHtml(item.emoji)} ${escapeHtml(item.prizeName)}
                     </div>
                     <div class="flex items-center justify-between gap-1 pt-1.5 border-t border-slate-200/70 dark:border-slate-700/70 text-[11px]">
                         ${item.opened ? `
-                            <span class="font-bold text-rose-700 dark:text-rose-300 truncate" title="${item.winnerName}">👤 ${item.winnerName}</span>
+                            <span class="font-bold text-rose-700 dark:text-rose-300 truncate" title="${escapeHtml(item.winnerName)}">👤 ${escapeHtml(item.winnerName)}</span>
                             <button onclick="adminQuickUndoNumber(${item.number})" class="text-[10px] font-extrabold text-rose-600 underline shrink-0">Estornar</button>
                         ` : `
-                            <span class="font-bold text-emerald-600 dark:text-emerald-400">🟢 Livre (Senha: ${item.password})</span>
+                            <span class="font-bold text-emerald-600 dark:text-emerald-400">🟢 Livre (Senha: ${escapeHtml(item.password)})</span>
                         `}
                     </div>
                 `;
@@ -1866,12 +2198,13 @@
         }
 
         function toggleUniqueNameRule(checked) {
-            state.uniqueNameLock = Boolean(checked);
+            state.uniqueNameLock = false;
+            const toggle = document.getElementById('chk-unique-name');
+            if (toggle) toggle.checked = false;
             saveState();
-            renderAll();
-            showToast(state.uniqueNameLock
-                ? '🛡️ Trava de 1 Número por Nome ativada!'
-                : '🔓 Múltiplas participações liberadas: a mesma pessoa pode escolher mais números!');
+            if (checked) {
+                showToast('A trava por nome está desativada para manter os nomes privados no banco.');
+            }
         }
 
         function toggleDeviceLockRule(checked) {
@@ -1966,15 +2299,20 @@
                     </button>
                 `;
             }
-            box.innerHTML = `<span>${message}</span>${actionHtml}`;
+            box.innerHTML = `<span>${escapeHtml(message)}</span>${actionHtml}`;
         }
 
-        function submitPasswordVault() {
+        async function submitPasswordVault() {
             const nameInput = document.getElementById('vault-winner-name');
             const pwdInput = document.getElementById('vault-password-input');
 
             const participantName = (nameInput ? nameInput.value.trim() : '');
             const rawPwd = (pwdInput ? pwdInput.value.trim() : '');
+
+            if (!cloudReady) {
+                showVaultFeedback('⏳ Conectando ao banco online. Aguarde alguns segundos e tente novamente.', true);
+                return;
+            }
 
             // 1. Validate Participant Name (Must be a real name with at least 3 letters)
             const lettersCount = (participantName.match(/[a-zA-ZÀ-ÿ]/g) || []).length;
@@ -2046,12 +2384,37 @@
             // =========================================================================
             // 6. LOCK IN CHOICE IMMEDIATELY & REVEAL PRIZE!
             // =========================================================================
-            const currentOpenedCount = state.items.filter(i => i.opened).length;
+            const openedAt = new Date().toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
+            let cloudClaim;
+            try {
+                cloudClaim = await claimNumberOnline(matchedItem, participantName, openedAt);
+            } catch (error) {
+                const alreadyTaken = error.message.includes('já foi escolhido');
+                showVaultFeedback(
+                    alreadyTaken
+                        ? `🛑 O Número #${formatNum(matchedItem.number)} acabou de ser escolhido. Escolha outro.`
+                        : `⚠️ Não foi possível salvar sua participação: ${getFirebaseErrorMessage(error)}`,
+                    true
+                );
+                if (alreadyTaken) {
+                    matchedItem.opened = true;
+                    renderAll();
+                }
+                playSound('error');
+                return;
+            }
+
             matchedItem.opened = true;
+            if (!organizerUnlocked) {
+                state.items.forEach(item => {
+                    if (item.number !== matchedItem.number) item.winnerName = '';
+                });
+                localClaimNumber = matchedItem.number;
+            }
             matchedItem.winnerName = participantName;
-            matchedItem.openedOrder = currentOpenedCount + 1;
-            matchedItem.openedAt = new Date().toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
-            matchedItem.authCode = generateAuthHash(matchedItem.number);
+            matchedItem.openedOrder = cloudClaim.openedOrder;
+            matchedItem.openedAt = openedAt;
+            matchedItem.authCode = cloudClaim.authCode;
 
             if (state.deviceSingleLock) {
                 localStorage.setItem(DEVICE_LOCK_KEY, String(matchedItem.number));
@@ -2189,7 +2552,7 @@
             editBox.classList.add('hidden');
             editBox.classList.remove('flex');
 
-            // Only show Admin Edit / Undo buttons if Admin (7777) is logged in!
+            // Only show Admin Edit / Undo buttons to an authenticated administrator.
             const btnAdminEdit = document.getElementById('btn-admin-edit-winner');
             const adminActions = document.getElementById('admin-ticket-actions');
             if (organizerUnlocked) {
@@ -2249,20 +2612,25 @@
             input.focus();
         }
 
-        function saveEditedWinnerName() {
+        async function saveEditedWinnerName() {
             if (!organizerUnlocked) return;
             const item = state.items.find(i => i.number === activeModalNumber);
             if (!item) return;
             const val = document.getElementById('input-edit-winner').value.trim();
             if (val) {
-                item.winnerName = val;
-                saveState();
-                document.getElementById('result-winner-name').textContent = val;
-                const box = document.getElementById('inline-edit-winner-box');
-                box.classList.add('hidden');
-                box.classList.remove('flex');
-                renderAll();
-                showToast('✅ Nome do ganhador atualizado pelo Admin!');
+                try {
+                    await updateCloudParticipant(item.number, { winnerName: val });
+                    item.winnerName = val;
+                    saveState(false);
+                    document.getElementById('result-winner-name').textContent = val;
+                    const box = document.getElementById('inline-edit-winner-box');
+                    box.classList.add('hidden');
+                    box.classList.remove('flex');
+                    renderAll();
+                    showToast('✅ Nome do ganhador atualizado pelo Admin!');
+                } catch (error) {
+                    showToast(`Erro ao salvar o nome: ${getFirebaseErrorMessage(error)}`);
+                }
             }
         }
 
@@ -2279,11 +2647,17 @@
             copyToClipboard(text, '📲 Comprovante do prêmio copiado para o WhatsApp!');
         }
 
-        function undoCurrentNumber() {
+        async function undoCurrentNumber() {
             if (!organizerUnlocked) return;
             const item = state.items.find(i => i.number === activeModalNumber);
             if (!item) return;
             const numStr = formatNum(item.number);
+            try {
+                await resetCloudNumber(item.number);
+            } catch (error) {
+                showToast(`Erro ao estornar o número: ${getFirebaseErrorMessage(error)}`);
+                return;
+            }
             item.opened = false;
             item.delivered = false;
             item.winnerName = '';
@@ -2291,7 +2665,7 @@
             item.openedOrder = 0;
             item.authCode = generateAuthHash(item.number);
             localStorage.removeItem(DEVICE_LOCK_KEY);
-            saveState();
+            saveState(false);
             closeRevealModal();
             renderAll();
             showToast(`🔄 O Número #${numStr} foi estornado pelo Admin e está disponível novamente!`);
@@ -2463,8 +2837,8 @@
                             </div>
                         </div>
                         ${(organizerUnlocked && state.peekMode) ? `
-                            <div class="w-full px-2 py-1 rounded-lg bg-amber-50 dark:bg-slate-800 border border-amber-200 dark:border-slate-700 text-[10px] font-bold ${rMeta.textClass} line-clamp-1" title="Senha: ${item.password} | ${item.prizeName}">
-                                ${item.emoji} ${item.prizeName}
+                            <div class="w-full px-2 py-1 rounded-lg bg-amber-50 dark:bg-slate-800 border border-amber-200 dark:border-slate-700 text-[10px] font-bold ${rMeta.textClass} line-clamp-1" title="Senha: ${escapeHtml(item.password)} | ${escapeHtml(item.prizeName)}">
+                                ${escapeHtml(item.emoji)} ${escapeHtml(item.prizeName)}
                             </div>
                         ` : `
                             <div class="w-full py-1 px-2 rounded-xl bg-amber-50/80 dark:bg-slate-800/80 text-amber-800 dark:text-amber-300 border border-amber-200/70 dark:border-slate-700 text-[10px] font-extrabold flex items-center justify-center gap-1 transition">
@@ -2486,13 +2860,13 @@
                             </span>
                         </div>
                         <div class="my-1 flex flex-col items-center">
-                            <span class="text-2xl sm:text-3xl leading-none mb-1">${item.emoji}</span>
-                            <div class="text-xs font-extrabold text-slate-900 dark:text-white leading-snug line-clamp-2 px-0.5" title="${item.prizeName}">
-                                ${item.prizeName}
+                            <span class="text-2xl sm:text-3xl leading-none mb-1">${escapeHtml(item.emoji)}</span>
+                            <div class="text-xs font-extrabold text-slate-900 dark:text-white leading-snug line-clamp-2 px-0.5" title="${escapeHtml(item.prizeName)}">
+                                ${escapeHtml(item.prizeName)}
                             </div>
                         </div>
-                        <div class="w-full pt-1 border-t border-slate-900/10 dark:border-white/10 text-[11px] font-extrabold text-slate-800 dark:text-slate-200 truncate" title="Ganhador(a): ${item.winnerName}">
-                            👤 ${item.winnerName || 'Participante'}
+                        <div class="w-full pt-1 border-t border-slate-900/10 dark:border-white/10 text-[11px] font-extrabold text-slate-800 dark:text-slate-200 truncate" title="Ganhador(a): ${escapeHtml(item.winnerName)}">
+                            👤 ${escapeHtml(item.winnerName || 'Participante')}
                         </div>
                     `;
                 }
@@ -2720,12 +3094,19 @@
             }
         }
 
-        function confirmFullReset() {
+        async function confirmFullReset() {
             if (!organizerUnlocked) return;
             const existingPasswords = state.items.map(i => i.password);
-            state.items = createInitialItems(existingPasswords);
+            const newItems = createInitialItems(existingPasswords);
+            try {
+                await resetCloudDraw(newItems);
+            } catch (error) {
+                showToast(`Erro ao reiniciar o sorteio: ${getFirebaseErrorMessage(error)}`);
+                return;
+            }
+            state.items = newItems;
             localStorage.removeItem(DEVICE_LOCK_KEY);
-            saveState();
+            saveState(false);
             renderAll();
             cancelResetConfirmation();
             switchAdminTab('map');
@@ -2755,7 +3136,7 @@
             const container = document.getElementById('toast-container');
             const toast = document.createElement('div');
             toast.className = 'bg-slate-900 dark:bg-white text-white dark:text-slate-950 px-4 py-3.5 rounded-2xl shadow-xl border border-slate-700 dark:border-slate-200 text-xs sm:text-sm font-bold flex items-center gap-2 transition-all duration-300 transform translate-y-2 opacity-0';
-            toast.innerHTML = `<span>${message}</span>`;
+            toast.textContent = message;
             container.appendChild(toast);
 
             requestAnimationFrame(() => {
@@ -2845,6 +3226,7 @@
         window.onload = function () {
             loadState();
             renderAll();
+            initializeFirebaseAuth();
         };
     </script>
 </body>

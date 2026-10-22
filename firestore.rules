@@ -1,0 +1,101 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function isAdmin() {
+      return request.auth != null
+        && request.auth.token.email == 'steven35silva@gmail.com';
+    }
+
+    function isAnonymous() {
+      return request.auth != null
+        && request.auth.token.firebase.sign_in_provider == 'anonymous';
+    }
+
+    function numberPath(numberId) {
+      return /databases/$(database)/documents/publicNumbers/$(numberId);
+    }
+
+    function participantPath(numberId) {
+      return /databases/$(database)/documents/participants/$(numberId);
+    }
+
+    function validNumberDocument() {
+      return request.resource.data.keys().hasAll([
+          'number', 'prizeName', 'emoji', 'rarity', 'isMajor', 'opened', 'openedAt'
+        ])
+        && request.resource.data.keys().hasOnly([
+          'number', 'prizeName', 'emoji', 'rarity', 'isMajor', 'opened', 'openedAt'
+        ])
+        && request.resource.data.number is int
+        && request.resource.data.number >= 1
+        && request.resource.data.number <= 80
+        && request.resource.data.prizeName is string
+        && request.resource.data.emoji is string
+        && request.resource.data.rarity is string
+        && request.resource.data.isMajor is bool
+        && request.resource.data.opened is bool;
+    }
+
+    function validParticipantDocument(numberId) {
+      return request.resource.data.keys().hasAll([
+          'number', 'winnerName', 'openedAt', 'openedOrder', 'authCode', 'delivered'
+        ])
+        && request.resource.data.keys().hasOnly([
+          'number', 'winnerName', 'openedAt', 'openedOrder', 'authCode', 'delivered'
+        ])
+        && request.resource.data.number is int
+        && request.resource.data.number >= 1
+        && request.resource.data.number <= 80
+        && request.resource.data.winnerName is string
+        && request.resource.data.winnerName.size() >= 3
+        && request.resource.data.winnerName.size() <= 100
+        && request.resource.data.openedAt is string
+        && request.resource.data.openedOrder is int
+        && request.resource.data.authCode is string
+        && request.resource.data.delivered == false
+        && getAfter(numberPath(numberId)).data.opened == true
+        && getAfter(numberPath(numberId)).data.openedAt == request.resource.data.openedAt;
+    }
+
+    match /publicNumbers/{numberId} {
+      allow read: if request.auth != null;
+      allow create: if isAdmin() && validNumberDocument();
+      allow update: if isAdmin() && validNumberDocument()
+        || (isAnonymous()
+          && resource.data.opened == false
+          && request.resource.data.opened == true
+          && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['opened', 'openedAt'])
+          && request.resource.data.openedAt is string
+          && existsAfter(participantPath(numberId))
+          && getAfter(participantPath(numberId)).data.number == resource.data.number);
+      allow delete: if isAdmin();
+    }
+
+    match /participants/{numberId} {
+      allow read: if isAdmin();
+      allow create: if (isAdmin() || isAnonymous())
+        && !exists(participantPath(numberId))
+        && validParticipantDocument(numberId);
+      allow update, delete: if isAdmin();
+    }
+
+    match /appConfig/{configId} {
+      allow read: if request.auth != null;
+      allow write: if isAdmin()
+        && configId == 'public'
+        && request.resource.data.keys().hasAll([
+          'title', 'subtitle', 'securityMode', 'uniqueNameLock', 'deviceSingleLock', 'passwords'
+        ])
+        && request.resource.data.keys().hasOnly([
+          'title', 'subtitle', 'securityMode', 'uniqueNameLock', 'deviceSingleLock', 'passwords'
+        ])
+        && request.resource.data.title is string
+        && request.resource.data.subtitle is string
+        && request.resource.data.securityMode in ['strict_pin', 'numeric_or_pin']
+        && request.resource.data.uniqueNameLock is bool
+        && request.resource.data.deviceSingleLock is bool
+        && request.resource.data.passwords is list
+        && request.resource.data.passwords.size() == 80;
+    }
+  }
+}
